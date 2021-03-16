@@ -1,0 +1,28 @@
+﻿// SASS document
+// Navigation
+// -------------------------------------------------
+@import "../modules/functions";
+
+.site-header {
+  .primary-navigation {
+    flex: 1 1 50%;
+  }
+
+  .menu-wrapper {
+    display: flex;
+    flex-direction: row;
+    .menu-item {
+      flex: 1 1 auto;
+      margin: em(16);
+      padding: em(8) em(16);
+      border: 1px solid red;
+      border-radius: em(8);
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}

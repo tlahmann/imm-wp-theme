@@ -1,0 +1,47 @@
+﻿// SASS document
+// Footer
+// -------------------------------------------------
+@import "../modules/colors";
+
+footer {
+  background-color: $highlight-color;
+  padding: 53px 0 0 0;
+  margin: 35px 0 0 0;
+
+  a {
+    font-weight: 400;
+    color: $immWhite;
+  }
+
+  ul, li {
+    margin: 0;
+    list-style: none;
+  }
+
+  li {
+    margin: 9px 0;
+  }
+
+  ul li {
+    text-transform: uppercase;
+    ul li {
+      text-transform: none;
+    }
+  }
+
+  .imm_footerLogo {
+    margin-bottom: 28px;
+  }
+
+  @media only screen and(max-width: 686px) {
+    padding: 1px 0 0 0;
+
+    .row:last-child {
+      margin-bottom: 0;
+    }
+
+    .project {
+      display: none;
+    }
+  }
+}

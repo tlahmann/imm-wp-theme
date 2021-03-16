@@ -1,0 +1,20 @@
+{
+  "name": "imm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "scss": "node-sass .\\scss\\imm.scss > style.css",
+    "scss:dev": "watch \"npm run scss\" ./scss",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  },
+  "dependencies": {
+    "watch": "^1.0.2"
+  }
+}

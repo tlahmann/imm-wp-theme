@@ -1,0 +1,14 @@
+﻿// SASS document
+// Header
+// -------------------------------------------------
+@import "../modules/colors";
+
+.site-header {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid $highlight-color;
+
+  .site-branding {
+    flex: 1 1 50%;
+  }
+}

@@ -1,0 +1,46 @@
+﻿// SASS document
+// Colors
+// -------------------------------------------------
+
+// Font
+$immBlack: #000000; // default font color
+$immWhite: #FFFFFF; // default font color
+
+// Highlights
+$highlight-color: #fa3c32;
+$highlight-color2: lighten($highlight-color, 10%);
+
+$highlight-triadic1: #29aecc;
+$highlight-triadic2: #61b22d;
+$highlight-triadic3: #ddd205;
+
+$imm-grey15: lighten($immBlack, 15%); // #7c7c7c
+$imm-grey175: lighten($immBlack, 17.5%); // #7c7c7c
+$imm-grey49: lighten($immBlack, 49%); // #7c7c7c
+$imm-grey55: lighten($immBlack, 55%); // #8C8C8C
+$imm-grey63: lighten($immBlack, 63%); // #A0A0A0
+$imm-grey85: lighten($immBlack, 88%); // #d9d9d9
+
+$btn-default-color: #333 !default;
+$btn-default-bg: #fff !default;
+$btn-default-border: $imm-grey63 !default;
+
+$btn-primary-color: #fff !default;
+$btn-primary-bg: $highlight-color !default;
+$btn-primary-border: darken($btn-primary-bg, 5%) !default;
+
+$btn-success-color: #000 !default;
+$btn-success-bg: $highlight-triadic2 !default;
+$btn-success-border: darken($btn-success-bg, 5%) !default;
+
+$btn-info-color: #fff !default;
+$btn-info-bg: $highlight-triadic1 !default;
+$btn-info-border: darken($btn-info-bg, 5%) !default;
+
+$btn-warning-color: #000 !default;
+$btn-warning-bg: $highlight-triadic3 !default;
+$btn-warning-border: darken($btn-warning-bg, 5%) !default;
+
+$btn-danger-color: #fff !default;
+$btn-danger-bg: $highlight-color !default;
+$btn-danger-border: darken($btn-danger-bg, 5%) !default;

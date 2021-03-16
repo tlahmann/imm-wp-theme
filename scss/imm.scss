@@ -1,0 +1,26 @@
+﻿// SASS document
+
+// Debugging Variable
+$debug: false;
+
+@import "modules/functions";
+@import "modules/colors";
+@import "modules/variables";
+@import "modules/mixins";
+
+/*#region FRAME */
+
+/* @import "partials/aside"; */
+@import "partials/basics";
+@import "partials/header";
+@import "partials/nav";
+@import "partials/footer";
+
+/*#endregion */
+
+// Debugging - show borders
+* {
+  @if ($debug) { // visualizing layout internals
+    border: 1px dotted red;
+  }
+}
