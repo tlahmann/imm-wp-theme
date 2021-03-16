@@ -44,7 +44,6 @@ while (have_posts()) :
     $post_id = get_the_ID();
 
     $projects = get_projects_for_subject_id( $post_id );
-    var_dump($projects);
     if ( 0 < count($projects) ) {
         echo '<p>This subject has published ' . count($projects) . ' projects:</p><ul>';
         foreach ( $projects as $project ) {
