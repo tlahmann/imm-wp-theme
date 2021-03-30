@@ -8,7 +8,7 @@ DEPARTMENT
             <?php
             /* Query the post */
             // this will return ALL of the posts from the projects CPT. You can also change this to a specific number such as 'posts_per_page' => 10... 
-            $args = array( 'post_type' => 'imm_subject', 'posts_per_page' => -1 );
+            $args = array( 'post_type' => 'staff', 'posts_per_page' => -1 );
             // In this line we are telling WP to query the 'projects' CPT
             $loop = new WP_Query( $args );
             // In this line we are saying keep looping through the 'subjects' CPT until all are returned

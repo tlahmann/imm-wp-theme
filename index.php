@@ -1,31 +1,24 @@
-<?php get_header(); ?>
+<!doctype html>
+<html <?php language_attributes(); ?>>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <?php wp_head(); ?>
+    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/skeleton/normalize.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/skeleton/skeleton.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
+  </head>
 
-<main role="main">
+  <body <?php body_class(); ?>>
+    <?php wp_body_open(); ?>
+    <?php get_header(); ?>
+    <?php //do_action('get_header'); ?>
 
-        <!-- hier Impressionen/Highlights/Neuigkeiten -->
-        <?php
-        $args = array(
-            'post_type' => array('portfolio', 'project'),
-            'meta_query' => array(
-                array(
-                  'key' => '_highlight',
-                  'value' => 'is-highlight',
-                  'compare' => '=='
-                )
-              )
-            );
-        query_posts($args);
-        ?>
-        <div class="row">
-            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-            <div class="three columns">
-                <?php the_post_thumbnail(); ?>
-                <p><?php the_content(__('(more...)')); ?></p>
-            </div>
-            <?php endwhile; else: ?>
-            <p><?php _e('Sorry, no impression or project found.'); ?></p>
-            <?php endif; ?>
-        </div>
+    <main role="main" class="container">
+
+        <?php get_template_part('template-parts/highlights'); ?>
 
         <hr/>
         <!-- hier alle Fächer -->
@@ -60,13 +53,7 @@
             <?php endif; ?>
         </div>
     </main>
-    <?php //get_sidebar();?>
-</div>
 
-<!-- </div> -->
-
-<?php get_footer(); ?>
-
-
-</body>
+    <?php get_footer(); ?>
+  </body>
 </html>
