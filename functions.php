@@ -14,6 +14,23 @@ if (version_compare($GLOBALS['wp_version'], '5.3', '<')) {
     // require get_template_directory() . '/inc/back-compat.php';
 }
 
+// Add support for post thumbnails
+add_theme_support( 'post-thumbnails' ); 
+
+function posts_for_current_author($query) {
+    global $pagenow;
+ 
+    if( 'edit.php' != $pagenow || !$query->is_admin ){
+        return $query;
+    }
+    if( !current_user_can( 'edit_others_posts' ) ) {
+        global $user_ID;
+        $query->set('author', $user_ID );
+    }
+    return $query;
+}
+add_filter('pre_get_posts', 'posts_for_current_author');
+
 if (! function_exists('imm_setup')) {
     /**
      * Sets up theme defaults and registers support for various WordPress features.

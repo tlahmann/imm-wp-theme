@@ -20,6 +20,10 @@ a {
   a:hover {
     color: #000000; }
 
+img {
+  width: 100%;
+  height: auto; }
+
 .screen-reader-text {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
@@ -352,8 +356,7 @@ fieldset[disabled] a.btn {
 
 footer {
   background-color: #fa3c32;
-  padding: 53px 0 0 0;
-  margin: 35px 0 0 0; }
+  padding: 53px 0 0 0; }
   footer a {
     font-weight: 400;
     color: #FFFFFF; }
