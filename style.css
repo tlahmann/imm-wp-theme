@@ -1,6 +1,6 @@
 /*
 Theme Name: imm WP
-Version: 0.0.7
+Version: 0.0.8
 Author: Tobias Lahmann
 Author URI: https://github.com/tlahmann
 Description: Awesome imm WordPress theme
@@ -353,9 +353,7 @@ fieldset[disabled] a.btn {
   .site-header .menu-wrapper .menu-item {
     flex: 1 1 auto;
     margin: 1em;
-    padding: 0.5em 1em;
-    border: 1px solid red;
-    border-radius: 0.5em; }
+    padding: 0.5em 1em; }
 
 .site-header ul {
   list-style-type: none;
