@@ -1,5 +1,13 @@
-/*#region FRAME */
-/* @import "partials/aside"; */
+/*
+Theme Name: imm WP
+Version: 0.0.5
+Author: Tobias Lahmann
+Author URI: https://github.com/tlahmann
+Description: Awesome imm WordPress theme
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: skeleton, responsive, wordpress, sidebar
+*/
 * {
   box-sizing: border-box; }
 
@@ -378,5 +386,3 @@ footer {
         margin-bottom: 0; }
       footer .project {
         display: none; } }
-
-/*#endregion */
