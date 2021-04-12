@@ -12,6 +12,7 @@
 get_header();
 
 // var_dump($wp_meta_boxes);
+echo 'SINGLE PROJECT';
 
 /* Start the Loop */
 while (have_posts()) :

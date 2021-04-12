@@ -20,10 +20,11 @@ query_posts($args);
 <div class="row">
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
     <div class="three columns">
-        <h5><?php the_title(); ?></h5>
-        <?php the_post_thumbnail(); ?>
-        <h6>Posted on <?php the_time('F jS, Y') ?></h6>
-        <p><?php the_content(__('(more...)')); ?></p>
+        <a href="<?php the_permalink(); ?>">
+            <h5><?php the_title(); ?></h5>
+            <?php the_post_thumbnail(); ?>
+            <h6>Posted on <?php the_time('F jS, Y') ?></h6>
+        </a>
     </div>
     <?php endwhile; else: ?>
     <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
