@@ -4,9 +4,9 @@
 @import "../modules/functions";
 
 .site-header {
-  .primary-navigation {
-    flex: 1 1 40%;
-  }
+  padding: 1em;
+  margin: 0 auto 1em auto;
+  max-width: 80vw;
 
   .menu-wrapper {
     display: flex;

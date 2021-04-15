@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*
 Theme Name: imm WP
-Version: 0.0.11
+Version: 0.0.12
 Author: <a href="http://www.bernadettritter.de/" target="_blank">Bernadett Ritter</a>, <a href="https://github.com/tlahmann" target="_blank">Tobias Lahmann</a> and <a href="https://github.com/JuliusSchuerrle" target="_blank">Julius Schürrle</a>
 Description: Awesome imm WordPress theme
 License: GNU General Public License v2 or later
@@ -344,21 +344,21 @@ fieldset[disabled] a.btn {
   .site-header .site-branding {
     flex: 1 1 50%; }
 
-.site-header .primary-navigation {
-  flex: 1 1 40%; }
-
-.site-header .menu-wrapper {
-  display: flex;
-  flex-direction: row; }
-  .site-header .menu-wrapper .menu-item {
-    flex: 1 1 auto;
-    margin: 1em;
-    padding: 0.5em 1em; }
-
-.site-header ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0; }
+.site-header {
+  padding: 1em;
+  margin: 0 auto 1em auto;
+  max-width: 80vw; }
+  .site-header .menu-wrapper {
+    display: flex;
+    flex-direction: row; }
+    .site-header .menu-wrapper .menu-item {
+      flex: 1 1 auto;
+      margin: 1em;
+      padding: 0.5em 1em; }
+  .site-header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
 
 footer {
   background-color: #fa3c32;
