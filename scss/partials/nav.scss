@@ -17,26 +17,20 @@
   .menu-wrapper {
     display: flex;
     flex-direction: row;
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+
     .menu-item {
       flex: 1 1 auto;
-      // margin: em(16);
-      // padding: em(8) em(16);
-      // border: 1px solid red;
-      // border-radius: em(8);
     }
-
-    /* Add a black background color to the top navigation */
-    // background-color: #333;
-    overflow: hidden;
 
     /* Style the links inside the navigation bar */
     a {
-      float: left;
       display: block;
       text-align: center;
       padding: 14px 16px;
-      text-decoration: none;
-      font-size: 17px;
       &:hover {
         color: black;
       }
@@ -44,16 +38,6 @@
         text-decoration: underline;
       }
     }
-    /* Hide the link that should open and close the topnav on small screens */
-    .icon {
-      display: none;
-    }
-  }
-
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
   }
 }
 

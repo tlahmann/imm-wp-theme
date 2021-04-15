@@ -18,7 +18,7 @@ $args1 = [
 // Sub query #2:
 //-----------------
 $args2 = [
-    'post_type'      => 'portfolio'
+    'post_type'      => 'impression'
 ];
 
 //setup your queries as you already do
@@ -29,18 +29,18 @@ $query2 = new WP_Query($args2);
 $results = new WP_Query();
 $results->posts = array_merge($query1->posts, $query2->posts);
 shuffle($results->posts);
-$results->posts = array_slice($results->posts, 0, 2);
+$results->posts = array_slice($results->posts, 0, 5);
 
 //populate post_count count for the loop to work correctly
-$results->post_count = $query1->post_count + $query2->post_count;
+$results->post_count = 5;
 
+// echo $results->post_count;
+// var_dump($results->posts);
 ?>
 
-<div class="main-gallery js-flickity" data-flickity-options='{ "cellAlign": "left", "contain": true }'>
+<div class="carousel-gallery">
     <?php if ($results->have_posts()) : while ($results->have_posts()) : $results->the_post(); ?>
-    <div class="gallery-cell">
-        <?php the_post_thumbnail(); ?>
-    </div>
+      <?php the_post_thumbnail(); ?>
     <?php endwhile; else: ?>
     <p><?php _e('Sorry, no impression or project found.'); ?></p>
     <?php endif; ?>
