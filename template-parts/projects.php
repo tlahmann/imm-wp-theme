@@ -17,15 +17,16 @@ query_posts($args);
 $args = array('post_type' => array('post', 'project'));
 query_posts($args);
 ?>
-<div class="row">
+<div class="masonry">
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-    <div class="three columns">
-        <a href="<?php the_permalink(); ?>">
-            <h5><?php the_title(); ?></h5>
+    <a href="<?php the_permalink(); ?>">
+        <div class="masonry-brick">
+        <figure>
             <?php the_post_thumbnail(); ?>
-            <h6>Posted on <?php the_time('F jS, Y') ?></h6>
-        </a>
-    </div>
+            <div class="overlay"><?php the_title(); ?></div>
+        </figure>
+        </div> <!-- End individual project col -->
+    </a>
     <?php endwhile; else: ?>
     <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
     <?php endif; ?>

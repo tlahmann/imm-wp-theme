@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*
 Theme Name: imm WP
-Version: 0.0.19
+Version: 0.0.20
 Author: <a href="http://www.bernadettritter.de/" target="_blank">Bernadett Ritter</a>, <a href="https://github.com/tlahmann" target="_blank">Tobias Lahmann</a> and <a href="https://github.com/JuliusSchuerrle" target="_blank">Julius Schürrle</a>
 Description: Awesome imm WordPress theme
 License: GNU General Public License v2 or later
@@ -47,6 +47,13 @@ a {
 img {
   width: 100%;
   height: auto; }
+
+figure {
+  margin: 0; }
+  figure img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%; }
 
 .screen-reader-text {
   border: 0;
@@ -487,11 +494,6 @@ footer {
   width: 100%;
   height: 300px;
   overflow: hidden; }
-
-figure.highlight img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%; }
 
 .carousel-gallery > figure {
   position: absolute;
