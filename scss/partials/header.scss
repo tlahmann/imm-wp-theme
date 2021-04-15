@@ -3,10 +3,10 @@
 // -------------------------------------------------
 @import "../modules/colors";
 
-.site-header {
+.site-header .container {
   display: flex;
   flex-direction: row;
-  border-bottom: 1px solid $highlight-color;
+  padding: 1em;
 
   .site-branding {
     flex: 1 1 50%;
