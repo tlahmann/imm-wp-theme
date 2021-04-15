@@ -2,21 +2,51 @@
 // Navigation
 // -------------------------------------------------
 @import "../modules/functions";
+@import "../modules/colors";
 
 .site-header {
   padding: 1em;
   margin: 0 auto 1em auto;
   max-width: 80vw;
 
+  .primary-navigation {
+    margin-left: auto;
+    position: relative;
+  }
+
   .menu-wrapper {
     display: flex;
     flex-direction: row;
     .menu-item {
       flex: 1 1 auto;
-      margin: em(16);
-      padding: em(8) em(16);
+      // margin: em(16);
+      // padding: em(8) em(16);
       // border: 1px solid red;
       // border-radius: em(8);
+    }
+
+    /* Add a black background color to the top navigation */
+    // background-color: #333;
+    overflow: hidden;
+
+    /* Style the links inside the navigation bar */
+    a {
+      float: left;
+      display: block;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      &:hover {
+        color: black;
+      }
+      &.active {
+        text-decoration: underline;
+      }
+    }
+    /* Hide the link that should open and close the topnav on small screens */
+    .icon {
+      display: none;
     }
   }
 
@@ -24,5 +54,76 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
+  }
+}
+
+// hamburger menu
+label.hamburg {
+  display: none;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+}
+
+input#hamburg {
+  display: none;
+}
+
+#hamburg {
+  &:checked + .hamburg {
+    .line:nth-child(1) {
+      transform: translateY(12px) rotate(-45deg);
+    }
+    .line:nth-child(2) {
+      opacity: 0;
+    }
+    .line:nth-child(3) {
+      transform: translateY(-12px) rotate(45deg);
+    }
+  }
+}
+
+.line {
+  position: absolute;
+  height: 4px;
+  width: 40px;
+  background: $highlight-color;
+  border-radius: 1px;
+  display: block;
+  transition: 0.5s;
+  transform-origin: center;
+
+  &:nth-child(1) {
+    top: 5px;
+  }
+  &:nth-child(2) {
+    top: 18px;
+  }
+  &:nth-child(3) {
+    top: 30px;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .primary-menu-container {
+    display: none;
+  }
+  #hamburg {
+    &:checked ~ .primary-menu-container {
+      display: block;
+      .menu-wrapper {
+        flex-direction: column;
+        position: absolute;
+        z-index: 100;
+        background: lightgray;
+        right: 0;
+      }
+    }
+  }
+  label.hamburg {
+    display: block;
   }
 }

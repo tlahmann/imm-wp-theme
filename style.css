@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*
 Theme Name: imm WP
-Version: 0.0.12
+Version: 0.0.13
 Author: <a href="http://www.bernadettritter.de/" target="_blank">Bernadett Ritter</a>, <a href="https://github.com/tlahmann" target="_blank">Tobias Lahmann</a> and <a href="https://github.com/JuliusSchuerrle" target="_blank">Julius Schürrle</a>
 Description: Awesome imm WordPress theme
 License: GNU General Public License v2 or later
@@ -348,17 +348,86 @@ fieldset[disabled] a.btn {
   padding: 1em;
   margin: 0 auto 1em auto;
   max-width: 80vw; }
+  .site-header .primary-navigation {
+    margin-left: auto;
+    position: relative; }
   .site-header .menu-wrapper {
     display: flex;
-    flex-direction: row; }
+    flex-direction: row;
+    /* Add a black background color to the top navigation */
+    overflow: hidden;
+    /* Style the links inside the navigation bar */
+    /* Hide the link that should open and close the topnav on small screens */ }
     .site-header .menu-wrapper .menu-item {
-      flex: 1 1 auto;
-      margin: 1em;
-      padding: 0.5em 1em; }
+      flex: 1 1 auto; }
+    .site-header .menu-wrapper a {
+      float: left;
+      display: block;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px; }
+      .site-header .menu-wrapper a:hover {
+        color: black; }
+      .site-header .menu-wrapper a.active {
+        text-decoration: underline; }
+    .site-header .menu-wrapper .icon {
+      display: none; }
   .site-header ul {
     list-style-type: none;
     margin: 0;
     padding: 0; }
+
+label.hamburg {
+  display: none;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px; }
+
+input#hamburg {
+  display: none; }
+
+#hamburg:checked + .hamburg .line:nth-child(1) {
+  transform: translateY(12px) rotate(-45deg); }
+
+#hamburg:checked + .hamburg .line:nth-child(2) {
+  opacity: 0; }
+
+#hamburg:checked + .hamburg .line:nth-child(3) {
+  transform: translateY(-12px) rotate(45deg); }
+
+.line {
+  position: absolute;
+  height: 4px;
+  width: 40px;
+  background: #fa3c32;
+  border-radius: 1px;
+  display: block;
+  transition: 0.5s;
+  transform-origin: center; }
+  .line:nth-child(1) {
+    top: 5px; }
+  .line:nth-child(2) {
+    top: 18px; }
+  .line:nth-child(3) {
+    top: 30px; }
+
+@media screen and (max-width: 860px) {
+  .primary-menu-container {
+    display: none; }
+  #hamburg:checked ~ .primary-menu-container {
+    display: block; }
+    #hamburg:checked ~ .primary-menu-container .menu-wrapper {
+      flex-direction: column;
+      position: absolute;
+      z-index: 100;
+      background: lightgray;
+      right: 0; }
+  label.hamburg {
+    display: block; } }
 
 footer {
   background-color: #fa3c32;
