@@ -40,7 +40,10 @@ $results->post_count = 5;
 
 <div class="carousel-gallery">
     <?php if ($results->have_posts()) : while ($results->have_posts()) : $results->the_post(); ?>
+    <figure class="highlight">
       <?php the_post_thumbnail(); ?>
+    </figure> <!-- End individual project col -->
+      
     <?php endwhile; else: ?>
     <p><?php _e('Sorry, no impression or project found.'); ?></p>
     <?php endif; ?>
