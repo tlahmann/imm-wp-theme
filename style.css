@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*
 Theme Name: imm WP
-Version: 0.0.16
+Version: 0.0.17
 Author: <a href="http://www.bernadettritter.de/" target="_blank">Bernadett Ritter</a>, <a href="https://github.com/tlahmann" target="_blank">Tobias Lahmann</a> and <a href="https://github.com/JuliusSchuerrle" target="_blank">Julius Schürrle</a>
 Description: Awesome imm WordPress theme
 License: GNU General Public License v2 or later
@@ -505,3 +505,46 @@ img:nth-child(4) {
 
 img:nth-child(5) {
   animation-delay: 8s; }
+
+.masonry {
+  display: flex;
+  flex-flow: row wrap; }
+
+.masonry-brick {
+  flex: 1 1 250px;
+  height: 250px;
+  overflow: hidden;
+  min-width: 150px;
+  margin: 0 8px 8px 0;
+  /* Some gutter */
+  position: relative;
+  /* The overlay effect - lays on top of the container and over the image */
+  /* When you mouse over the container, fade in the overlay title */ }
+  .masonry-brick:nth-child(4n + 1) {
+    width: 250px; }
+  .masonry-brick:nth-child(4n + 1):nth-child(4n + 2) {
+    width: 325px; }
+  .masonry-brick:nth-child(4n + 1):nth-child(4n + 3) {
+    width: 180px; }
+  .masonry-brick:nth-child(4n + 1):nth-child(4n + 4) {
+    width: 380px; }
+  .masonry-brick .masonry-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%; }
+  .masonry-brick .overlay {
+    position: absolute;
+    bottom: 0;
+    background: black;
+    background: rgba(0, 0, 0, 0.75);
+    /* Black see-through */
+    color: #f1f1f1;
+    width: 100%;
+    transition: 0.5s ease;
+    opacity: 0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center; }
+  .masonry-brick:hover .overlay {
+    opacity: 1; }
