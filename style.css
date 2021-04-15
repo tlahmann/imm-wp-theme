@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*
 Theme Name: imm WP
-Version: 0.0.17
+Version: 0.0.18
 Author: <a href="http://www.bernadettritter.de/" target="_blank">Bernadett Ritter</a>, <a href="https://github.com/tlahmann" target="_blank">Tobias Lahmann</a> and <a href="https://github.com/JuliusSchuerrle" target="_blank">Julius Schürrle</a>
 Description: Awesome imm WordPress theme
 License: GNU General Public License v2 or later
@@ -548,3 +548,36 @@ img:nth-child(5) {
     text-align: center; }
   .masonry-brick:hover .overlay {
     opacity: 1; }
+
+/* The Modal (background) */
+#lightbox-modal {
+  display: block;
+  position: fixed;
+  z-index: 9999;
+  padding: 3em;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.75);
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 500ms ease-in-out;
+  -moz-transition: opacity 500ms ease-in-out;
+  -o-transition: opacity 500ms ease-in-out;
+  transition: opacity 500ms ease-in-out;
+  /* Modal Content */ }
+  #lightbox-modal.show {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: opacity 500ms ease-in-out;
+    -moz-transition: opacity 500ms ease-in-out;
+    -o-transition: opacity 500ms ease-in-out;
+    transition: opacity 500ms ease-in-out; }
+  #lightbox-modal #lightbox-modal-caption {
+    color: white;
+    text-align: center;
+    font-size: 2em;
+    padding: 1em 0;
+    margin: 0; }

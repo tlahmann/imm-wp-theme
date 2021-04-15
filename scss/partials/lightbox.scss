@@ -1,0 +1,36 @@
+/* The Modal (background) */
+#lightbox-modal {
+  display: block;
+  position: fixed;
+  z-index: 9999;
+  padding: 3em;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.75);
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 500ms ease-in-out;
+  -moz-transition: opacity 500ms ease-in-out;
+  -o-transition: opacity 500ms ease-in-out;
+  transition: opacity 500ms ease-in-out;
+  &.show {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: opacity 500ms ease-in-out;
+    -moz-transition: opacity 500ms ease-in-out;
+    -o-transition: opacity 500ms ease-in-out;
+    transition: opacity 500ms ease-in-out;
+  }
+
+  /* Modal Content */
+  #lightbox-modal-caption {
+    color: white;
+    text-align: center;
+    font-size: 2em;
+    padding: 1em 0;
+    margin: 0;
+  }
+}
