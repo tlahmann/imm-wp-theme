@@ -59,6 +59,14 @@ while (have_posts()) :
 
 
     <?php
+
+
 endwhile; // End of the loop.
+
+global $post;
+echo $post->ID;
+
+get_template_part('template-parts/projects', null, ['project_id' => $post->ID]);
+
 
 get_footer();

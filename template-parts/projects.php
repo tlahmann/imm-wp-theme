@@ -1,5 +1,6 @@
 <!-- hier alle Fächer -->
 <?php
+echo $args['project_id'];
 $args = array('post_type' => array('subject'));
 query_posts($args);
 ?>
