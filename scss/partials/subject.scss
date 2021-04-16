@@ -1,0 +1,24 @@
+.subject-column {
+  display: flex;
+  flex-direction: column;
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1em;
+    .media {
+      border: 1px solid black;
+    }
+    &.reverse {
+      flex-direction: row-reverse;
+      .description {
+        text-align: right;
+      }
+      .column:not(:first-child),
+      .columns:not(:first-child) {
+        margin-left: unset;
+        margin-right: 4%;
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*
 Theme Name: imm WP
-Version: 0.0.22
+Version: 0.0.23
 Author: <a href="http://www.bernadettritter.de/" target="_blank">Bernadett Ritter</a>, <a href="https://github.com/tlahmann" target="_blank">Tobias Lahmann</a> and <a href="https://github.com/JuliusSchuerrle" target="_blank">Julius Schürrle</a>
 Description: Awesome imm WordPress theme
 License: GNU General Public License v2 or later
@@ -587,3 +587,21 @@ figure:nth-child(5) {
 
 .project summary {
   display: block; }
+
+.subject-column {
+  display: flex;
+  flex-direction: column; }
+  .subject-column .row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1em; }
+    .subject-column .row .media {
+      border: 1px solid black; }
+    .subject-column .row.reverse {
+      flex-direction: row-reverse; }
+      .subject-column .row.reverse .description {
+        text-align: right; }
+      .subject-column .row.reverse .column:not(:first-child),
+      .subject-column .row.reverse .columns:not(:first-child) {
+        margin-left: unset;
+        margin-right: 4%; }
