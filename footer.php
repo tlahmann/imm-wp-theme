@@ -2,6 +2,10 @@
     </main> <!-- close container -->
 
 
+    <div class="teaser">
+        MI-studieren: Bei interesse ... Verlinkung auf <a href="https://www.uni-ulm.de/in/mi/">Medieninformatik bei der Uni Ulm</a>
+    </div>
+
     <footer>
 
     <div class="container">

@@ -2,10 +2,20 @@
 // Footer
 // -------------------------------------------------
 @import "../modules/colors";
+@import "../modules/functions";
+
+.teaser {
+  background-color: $highlight-color2;
+  padding: 4em 2em;
+  margin-top: 2em;
+  text-align: center;
+  color: $immWhite;
+  font-size: 1.5em;
+}
 
 footer {
   background-color: $highlight-color;
-  padding: 53px 0 0 0;
+  padding: em(53) 0;
 
   a {
     font-weight: 400;

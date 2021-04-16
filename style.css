@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*
 Theme Name: imm WP
-Version: 0.0.23
+Version: 0.0.25
 Author: <a href="http://www.bernadettritter.de/" target="_blank">Bernadett Ritter</a>, <a href="https://github.com/tlahmann" target="_blank">Tobias Lahmann</a> and <a href="https://github.com/JuliusSchuerrle" target="_blank">Julius Schürrle</a>
 Description: Awesome imm WordPress theme
 License: GNU General Public License v2 or later
@@ -73,7 +73,7 @@ figure {
 main {
   margin: 0 auto;
   padding: 20px 40px;
-  min-height: calc(100vh - (300px)); }
+  min-height: calc(100vh - (618px)); }
 
 .btn {
   display: inline-block;
@@ -448,9 +448,17 @@ input#hamburg {
   label.hamburg {
     display: block; } }
 
+.teaser {
+  background-color: #fb6b64;
+  padding: 4em 2em;
+  margin-top: 2em;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 1.5em; }
+
 footer {
   background-color: #fa3c32;
-  padding: 53px 0 0 0; }
+  padding: 3.3125em 0; }
   footer a {
     font-weight: 400;
     color: #FFFFFF; }
