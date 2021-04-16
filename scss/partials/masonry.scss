@@ -4,25 +4,28 @@
 }
 
 .masonry-brick {
-  flex: 1 1 250px;
+  // flex: 1 1 250px;
+  flex-basis: calc(25% - 8px);
+  flex-grow: 1;
+  flex-shrink: 1;
   height: 250px;
   overflow: hidden;
-  min-width: 150px;
+  // min-width: 150px;
   margin: 0 8px 8px 0; /* Some gutter */
   position: relative;
 
-  &:nth-child(4n + 1) {
-    width: 250px;
-  }
-  &:nth-child(4n + 1):nth-child(4n + 2) {
-    width: 325px;
-  }
-  &:nth-child(4n + 1):nth-child(4n + 3) {
-    width: 180px;
-  }
-  &:nth-child(4n + 1):nth-child(4n + 4) {
-    width: 380px;
-  }
+  // &:nth-child(4n + 1) {
+  //   width: 250px;
+  // }
+  // &:nth-child(4n + 1):nth-child(4n + 2) {
+  //   width: 325px;
+  // }
+  // &:nth-child(4n + 1):nth-child(4n + 3) {
+  //   width: 180px;
+  // }
+  // &:nth-child(4n + 1):nth-child(4n + 4) {
+  //   width: 380px;
+  // }
 
   .masonry-img {
     object-fit: cover;

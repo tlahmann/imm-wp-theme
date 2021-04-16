@@ -14,18 +14,16 @@ query_posts($args);
 </div>
 <!-- hier alle Projekte -->
 <?php
-$args = array('post_type' => array('post', 'project'));
+$args = array('post_type' => array('post', 'project'), 'meta_query' => array(array('key' => '_thumbnail_id')) );
 query_posts($args);
 ?>
-<div class="masonry">
+<div class="row masonry">
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-    <a href="<?php the_permalink(); ?>">
-        <div class="masonry-brick">
+    <a href="<?php the_permalink(); ?>" class="masonry-brick three columns">
         <figure>
             <?php the_post_thumbnail(); ?>
-            <div class="overlay"><?php the_title(); ?></div>
+            <figcaption class="overlay"><?php the_title(); ?></figcaption>
         </figure>
-        </div> <!-- End individual project col -->
     </a>
     <?php endwhile; else: ?>
     <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
