@@ -70,7 +70,13 @@ endwhile; // End of the loop.
 global $post;
 $post_meta = get_post_meta($post->ID);
 
-get_template_part('template-parts/projects', null, ['subject_id' => $post_meta['_subject_id'][0], 'exclude_project' => $post->ID]);
+$args = [
+    'show_filter'     => false,
+    'subject_id'      => array_key_exists('_subject_id', $post_meta) && $post_meta['_subject_id'][0] !== 0 ? $post_meta['_subject_id'][0] : null, 
+    'exclude_project' => $post->ID
+];
+
+get_template_part('template-parts/projects', null, $args);
 
 
 get_footer();

@@ -6,6 +6,14 @@
  */
 
 // Get the project id. Used to exclude this project(s) in the query
+$defaults =[
+    'show_filter'     => true,
+    'subject_id'      => null,
+    'exclude_project' => null
+];
+
+$args = array_merge($defaults, $args);
+
 if (array_key_exists('exclude_project', $args) && isset($args['exclude_project'])) {
     $exclude_projects = is_array($args['exclude_project']) ? $args['exclude_project'] : array($args['exclude_project']);
 } else {
@@ -16,7 +24,7 @@ if (array_key_exists('exclude_project', $args) && isset($args['exclude_project']
  <!-- Subject 'filter' -->
 <?php
 // Get the subject id. When set the projects are filtered to this specific subject
-if (!array_key_exists('subject_id', $args) || !isset($args['subject_id'])) :
+if ((!array_key_exists('subject_id', $args) || !isset($args['subject_id'])) && $args['show_filter']) :
     $subject_args = array(
         'post_type' => array('subject')
     );
@@ -35,9 +43,7 @@ if (!array_key_exists('subject_id', $args) || !isset($args['subject_id'])) :
             <?php echo $subject->post_title; ?>
         </button>
 
-        <?php endforeach; else: ?>
-        <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
-        <?php endif; ?>
+        <?php endforeach; endif; ?>
     </div>
 <?php
 else:
@@ -52,7 +58,7 @@ $meta_args = array(
 );
 
 if (isset($parent_subject)) {
-    $meta_args = array_merge($meta_args, array('key' => '_subject_id', 'value' => intval($parent_subject)));
+    $meta_args = array(array_merge($meta_args, array('key' => '_subject_id', 'value' => intval($parent_subject))));
 }
 
 $args = array(
@@ -64,9 +70,9 @@ $args = array(
 $projects = get_posts($args);
 ?>
 <div class="row masonry">
-    <?php if (0 !== count($projects)) : 
-        foreach ($projects as $post) : 
-            setup_postdata($post); 
+    <?php if (0 !== count($projects)) :
+        foreach ($projects as $post) :
+            setup_postdata($post);
             $post_meta = get_post_meta($post->ID, '', true);
             $subject_id = $post_meta['_subject_id'][0] ?? 0;
             ?>
