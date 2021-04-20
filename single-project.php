@@ -70,7 +70,7 @@ endwhile; // End of the loop.
 global $post;
 $post_meta = get_post_meta($post->ID);
 
-get_template_part('template-parts/projects', null, ['subject_id' => $post_meta['_subject_id'][0], 'project_id' => $post->ID]);
+get_template_part('template-parts/projects', null, ['subject_id' => $post_meta['_subject_id'][0], 'exclude_project' => $post->ID]);
 
 
 get_footer();

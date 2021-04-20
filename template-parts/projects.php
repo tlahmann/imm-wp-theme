@@ -23,9 +23,17 @@ if (!array_key_exists('subject_id', $args) || !isset($args['subject_id'])) :
     $subjects = get_posts($subject_args);
     ?>
     <div class="project-filter">
+
+        <button class="filter-button active" onclick="filterSelection('all')"><?php _e('Alle Fächer'); ?></button>
+
+        <!-- Loop subjects -->
         <?php if (0 !== count($subjects)) : foreach ($subjects as $subject) : ?>
 
-        <button class="filter-button"><?php echo $subject->post_title; ?></button>
+        <button 
+            class="filter-button" 
+            onclick="filterSelection('<?php echo $subject->ID; ?>')">
+            <?php echo $subject->post_title; ?>
+        </button>
 
         <?php endforeach; else: ?>
         <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
@@ -40,7 +48,7 @@ endif;
 <!-- hier alle Projekte -->
 <?php
 $meta_args = array(
-    array('key' => '_thumbnail_id')
+    // array('key' => '_thumbnail_id')
 );
 
 if (isset($parent_subject)) {
@@ -49,14 +57,20 @@ if (isset($parent_subject)) {
 
 $args = array(
     'post_type'  => array('post', 'project'),
+    'posts_per_page' => 16,
     'exclude'    => $exclude_projects,
     'meta_query' => $meta_args
 );
 $projects = get_posts($args);
 ?>
 <div class="row masonry">
-    <?php if (0 !== count($projects)) : foreach ($projects as $post) : setup_postdata($post); ?>
-    <a href="<?php the_permalink(); ?>" class="masonry-brick three columns">
+    <?php if (0 !== count($projects)) : 
+        foreach ($projects as $post) : 
+            setup_postdata($post); 
+            $post_meta = get_post_meta($post->ID, '', true);
+            $subject_id = $post_meta['_subject_id'][0] ?? 0;
+            ?>
+    <a href="<?php the_permalink(); ?>" class="masonry-brick masonry-project subject-<?php echo $subject_id; ?> show three columns">
         <figure>
             <?php the_post_thumbnail(); ?>
             <figcaption class="overlay"><?php the_title(); ?></figcaption>

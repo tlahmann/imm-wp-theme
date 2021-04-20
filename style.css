@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*
 Theme Name: imm WP
-Version: 0.2.2
+Version: 0.2.3
 Author: <a href="http://www.bernadettritter.de/" target="_blank">Bernadett Ritter</a>, <a href="https://github.com/tlahmann" target="_blank">Tobias Lahmann</a> and <a href="https://github.com/JuliusSchuerrle" target="_blank">Julius Schürrle</a>
 Description: Awesome imm WordPress theme
 License: GNU General Public License v2 or later
@@ -607,6 +607,25 @@ figure:nth-child(5) {
     display: flex;
     cursor: pointer;
     height: auto; }
+    .project-filter .filter-button.active {
+      background-color: #fb6b64; }
+
+.masonry .masonry-project {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 500ms ease-in-out, visibility 0s linear 500ms;
+  -moz-transition: opacity 500ms ease-in-out, visibility 0s linear 500ms;
+  -o-transition: opacity 500ms ease-in-out, visibility 0s linear 500ms;
+  transition: opacity 500ms ease-in-out, visibility 0s linear 500ms; }
+  .masonry .masonry-project.show {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: opacity 500ms ease-in-out;
+    -moz-transition: opacity 500ms ease-in-out;
+    -o-transition: opacity 500ms ease-in-out;
+    transition: opacity 500ms ease-in-out; }
 
 .subject-column {
   display: flex;

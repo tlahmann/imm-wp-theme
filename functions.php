@@ -14,6 +14,16 @@ if (version_compare($GLOBALS['wp_version'], '5.3', '<')) {
     // require get_template_directory() . '/inc/back-compat.php';
 }
 
+/**
+ * Load script with theme
+ */
+add_action('wp_enqueue_scripts', 'imm_load_script');
+
+function imm_load_script()
+{
+    wp_enqueue_script('imm-script', get_template_directory_uri() . './js/imm.js');
+}
+
 // Add support for post thumbnails
 add_theme_support( 'post-thumbnails' ); 
 
