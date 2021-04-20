@@ -6,6 +6,11 @@
   summary {
     display: block;
   }
+
+  .meta-data{
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .project-filter {

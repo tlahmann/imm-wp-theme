@@ -25,17 +25,18 @@ function imm_load_script()
 }
 
 // Add support for post thumbnails
-add_theme_support( 'post-thumbnails' ); 
+add_theme_support('post-thumbnails');
 
-function posts_for_current_author($query) {
+function posts_for_current_author($query)
+{
     global $pagenow;
  
-    if( 'edit.php' != $pagenow || !$query->is_admin ){
+    if ('edit.php' != $pagenow || !$query->is_admin) {
         return $query;
     }
-    if( !current_user_can( 'edit_others_posts' ) ) {
+    if (!current_user_can('edit_others_posts')) {
         global $user_ID;
-        $query->set('author', $user_ID );
+        $query->set('author', $user_ID);
     }
     return $query;
 }
@@ -334,9 +335,134 @@ function imm_add_ie_class()
 add_action('wp_footer', 'imm_add_ie_class');
 
 /* Flush rewrite rules for custom post types. */
-add_action( 'after_switch_theme', 'bt_flush_rewrite_rules' );
-
+add_action('after_switch_theme', 'imm_flush_rewrite_rules');
 /* Flush your rewrite rules */
-function bt_flush_rewrite_rules() {
+function imm_flush_rewrite_rules()
+{
     flush_rewrite_rules();
+}
+
+/**
+ * Echoes the post's supervisor
+ *
+ * @since 0.2.7
+ */
+function the_post_supervisor(): void
+{
+    echo get_the_post_supervisor(null);
+}
+
+/**
+ * Echoes the post's supervisor
+ *
+ * @since 0.2.7
+ *
+ * @param int|WP_Post  $post Optional. Post ID or WP_Post object.  Default is global `$post`.
+ */
+function get_the_post_supervisor($post = null)
+{
+    $post = get_post($post);
+
+    if (! $post) {
+        return '';
+    }
+
+    $supervisor_id = get_post_meta($post->ID, '_supervisor_id', true);
+
+    if (! $supervisor_id) {
+        return '';
+    }
+
+    $supervisor = get_post($supervisor_id);
+
+    return $supervisor->name;
+}
+
+/**
+ * Echoes the post's term
+ *
+ * @since 0.2.7
+ */
+function the_post_term(): void
+{
+    echo get_the_post_term(null);
+}
+
+/**
+ * Echoes the post's term
+ *
+ * @since 0.2.7
+ *
+ * @param int|WP_Post  $post Optional. Post ID or WP_Post object.  Default is global `$post`.
+ */
+function get_the_post_term($post = null)
+{
+    $post = get_post($post);
+
+    if (! $post) {
+        return null;
+    }
+
+    $term = get_post_meta($post->ID, '_term', true);
+    
+    if (! $term) {
+        return null;
+    }
+    $term = explode('-', $term);
+    return ($term[1] == 1 ? _e('Wintersemester') : _e('Sommersemester')) . ' ' . $term[0];
+}
+
+/**
+ * Echoes the post's subject
+ *
+ * @since 0.2.7
+ */
+function the_post_subject(): void
+{
+    echo get_the_post_subject(null);
+}
+
+/**
+ * Echoes the post's subject
+ *
+ * @since 0.2.7
+ *
+ * @param int|WP_Post  $post Optional. Post ID or WP_Post object.  Default is global `$post`.
+ */
+function get_the_post_subject($post = null): string
+{
+    $post = get_post($post);
+
+    if (! $post) {
+        return '';
+    }
+
+    $subject_id = get_the_post_subject_id();
+
+    if (! $subject_id) {
+        return '';
+    }
+
+    $subject = get_post($subject_id);
+
+    return $subject->post_name;
+}
+
+/**
+ * Echoes the post's subject
+ *
+ * @since 0.2.7
+ *
+ * @param int|WP_Post  $post Optional. Post ID or WP_Post object.  Default is global `$post`.
+ */
+function get_the_post_subject_id($post = null): int
+{
+    $post = get_post($post);
+
+    if (! $post) {
+        return null;
+    }
+    $subject_id = get_post_meta($post->ID, '_subject_id', true);
+
+    return $subject_id;
 }
