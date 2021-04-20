@@ -1,4 +1,4 @@
-<h1>Project Sidebar</h1>
+<h5>Project Sidebar</h5>
 
 <?php
 
@@ -8,14 +8,21 @@ if ($queried_object) {
     $post_id = $queried_object->ID;
     echo get_the_title($post_id);
 
+    $media_set = get_post_meta($post_id, '_media_ids', true);
+    $media_set = explode(',', $media_set);
+
     $attachments = get_posts( array(
-        'post_type' => 'attachment',
+        'post_type'      => 'attachment',
         'posts_per_page' => -1,
-        'post_parent' => $post_id,
-        'exclude'     => get_post_thumbnail_id()
+        'include'        => $media_set
     ) );
 
-    var_dump($attachments);
+    // var_dump($attachments);
+
+    foreach ($attachments as $key => $value) {
+        echo wp_get_attachment_image($value->ID);
+        // echo $value->id;
+    }
 
     // $post_meta = get_post_meta($post_id);
     // var_dump($post_meta);
