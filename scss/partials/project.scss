@@ -1,5 +1,22 @@
+@import "../modules/colors";
+@import "../modules/functions";
+
 .project {
   summary {
     display: block;
+  }
+}
+
+.project-filter {
+  display: flex;
+  justify-content: space-evenly;
+  .filter-button {
+    background-color: $highlight-color;
+    border: none;
+    color: $immWhite;
+    text-align: center;
+    display: flex;
+    cursor: pointer;
+    height: auto;
   }
 }
