@@ -20,8 +20,12 @@ while (have_posts()) :
     
     <header class="row">
         <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
-        <summary><?php the_excerpt(); ?></summar>
+        <summary><?php the_excerpt(); ?></summary>
     </header><!-- end .row -->
+
+    <div class="row">
+        <?php the_post_thumbnail(); ?>
+    </div>
 
     <div class="row">
         <article id="post-<?php the_ID(); ?>" <?php post_class(['eight columns']); ?> >
@@ -64,9 +68,9 @@ while (have_posts()) :
 endwhile; // End of the loop.
 
 global $post;
-echo $post->ID;
+$post_meta = get_post_meta($post->ID);
 
-get_template_part('template-parts/projects', null, ['project_id' => $post->ID]);
+get_template_part('template-parts/projects', null, ['subject_id' => $post_meta['_subject_id'][0], 'project_id' => $post->ID]);
 
 
 get_footer();
