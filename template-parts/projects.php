@@ -1,7 +1,14 @@
 <!-- hier alle Fächer -->
 <?php
-echo $args['project_id'];
-$args = array('post_type' => array('subject'));
+if (isset($args['project_id'])) {
+    $excludeProject = array($args['project_id']);
+}
+if (isset($args['subject_id'])) {
+    echo $args['subject_id'];
+}
+$args = array(
+    'post_type' => array('subject')
+);
 query_posts($args);
 ?>
 <div class="row">
@@ -15,18 +22,24 @@ query_posts($args);
 </div>
 <!-- hier alle Projekte -->
 <?php
-$args = array('post_type' => array('post', 'project'), 'meta_query' => array(array('key' => '_thumbnail_id')) );
-query_posts($args);
+$args = array(
+    'post_type'  => array('post', 'project'),
+    'exclude'    => $excludeProject,
+    'meta_query' => array(
+        array('key' => '_thumbnail_id')
+    )
+);
+$projects = get_posts($args);
 ?>
 <div class="row masonry">
-    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+    <?php if (0 !== count($projects)) : foreach ( $projects as $post ) : setup_postdata( $post ); ?>
     <a href="<?php the_permalink(); ?>" class="masonry-brick three columns">
         <figure>
             <?php the_post_thumbnail(); ?>
-            <figcaption class="overlay"><?php the_title(); ?></figcaption>
+            <figcaption class="overlay"><?php the_title(); the_ID(); ?></figcaption>
         </figure>
     </a>
-    <?php endwhile; else: ?>
+    <?php endforeach; else: ?>
     <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
     <?php endif; ?>
 </div>
