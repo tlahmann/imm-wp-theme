@@ -14,8 +14,8 @@
     ?>
 
     <div class="row <?php echo $reverse ? 'reverse' : ''; ?>">
-        <div class="media three columns">MEDIA</div>
-        <div class="description nine columns">
+        <div class="media five columns">MEDIA</div>
+        <div class="description seven columns">
             <h4><?php print get_the_title(); ?></h4>
             <?php print get_the_excerpt(); ?><br />
             <a href="<?php print get_permalink($post->ID) ?>">&rarr;&nbsp;mehr Infos</a> <!-- This returns the featured image with it linked to the page that it was added to-->
