@@ -7,10 +7,14 @@
     display: block;
   }
 
-  .meta-data{
+  .meta-data {
     display: flex;
     flex-direction: column;
   }
+}
+
+.projects-teaser p {
+  text-align: center;
 }
 
 .project-filter {

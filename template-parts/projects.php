@@ -59,6 +59,9 @@ $meta_args = array(
 
 if (isset($parent_subject)) {
     $meta_args = array(array_merge($meta_args, array('key' => '_subject_id', 'value' => intval($parent_subject))));
+    $subjects_name = get_post($parent_subject)->post_name;
+    $teaser_text = __("Weitere Projekte aus ") . $subjects_name;
+    echo "<div class=\"row projects-teaser\"><p>$teaser_text</p></div>";
 }
 
 $args = array(

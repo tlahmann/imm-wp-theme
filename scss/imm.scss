@@ -5,7 +5,7 @@ $debug: false;
 
 /*
 Theme Name: imm WP
-Version: 0.2.7
+Version: 0.2.8
 Author: <a href="http://www.bernadettritter.de/" target="_blank">Bernadett Ritter</a>, <a href="https://github.com/tlahmann" target="_blank">Tobias Lahmann</a> and <a href="https://github.com/JuliusSchuerrle" target="_blank">Julius Schürrle</a>
 Description: Awesome imm WordPress theme
 License: GNU General Public License v2 or later
@@ -34,7 +34,8 @@ Tags: skeleton, responsive, wordpress, sidebar
 
 // Debugging - show borders
 * {
-  @if ($debug) { // visualizing layout internals
+  @if ($debug) {
+    // visualizing layout internals
     border: 1px dotted red;
   }
 }
