@@ -54,7 +54,7 @@ endif;
 <!-- hier alle Projekte -->
 <?php
 $meta_args = array(
-    // array('key' => '_thumbnail_id')
+    array('key' => '_thumbnail_id')
 );
 
 if (isset($parent_subject)) {
