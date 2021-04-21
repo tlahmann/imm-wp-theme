@@ -353,7 +353,7 @@ function the_post_supervisor(): void
 }
 
 /**
- * Echoes the post's supervisor
+ * Retrieves the post's supervisor title
  *
  * @since 0.2.7
  *
@@ -367,15 +367,44 @@ function get_the_post_supervisor($post = null)
         return '';
     }
 
-    $supervisor_id = get_post_meta($post->ID, '_supervisor_id', true);
+    $supervisor_id = get_the_post_supervisor_id($post);
 
     if (! $supervisor_id) {
         return '';
     }
+    $supervisor = get_post($supervisor_id);
+
+    return $supervisor->post_title;
+}
+
+/**
+ * Determines whether a post has a supervisor attached
+ *
+ * @since 0.2.8
+ *
+ * @param int|WP_Post  $post Optional. Post ID or WP_Post object.  Default is global `$post`.
+ */
+function get_the_post_supervisor_id($post = null) : int
+{
+    $post = get_post($post);
+
+    if (! $post) {
+        return -1;
+    }
+
+    $supervisor_id = get_post_meta($post->ID, '_supervisor_id', true);
+
+    if (! $supervisor_id) {
+        return -1;
+    }
 
     $supervisor = get_post($supervisor_id);
 
-    return $supervisor->name;
+    if (! $supervisor) {
+        return -1;
+    }
+
+    return $supervisor->ID;
 }
 
 /**
@@ -409,7 +438,7 @@ function get_the_post_term($post = null)
         return null;
     }
     $term = explode('-', $term);
-    return ($term[1] == 1 ? _e('Wintersemester') : _e('Sommersemester')) . ' ' . $term[0];
+    return ($term[1] == 1 ? __('Wintersemester') : __('Sommersemester')) . ' ' . $term[0];
 }
 
 /**
@@ -442,27 +471,37 @@ function get_the_post_subject($post = null): string
     if (! $subject_id) {
         return '';
     }
-
     $subject = get_post($subject_id);
 
-    return $subject->post_name;
+    return $subject->post_title;
 }
 
 /**
- * Echoes the post's subject
+ * Determines whether a post has a subject attached
  *
  * @since 0.2.7
  *
  * @param int|WP_Post  $post Optional. Post ID or WP_Post object.  Default is global `$post`.
  */
-function get_the_post_subject_id($post = null): int
+function get_the_post_subject_id($post = null) : int
 {
     $post = get_post($post);
 
     if (! $post) {
-        return null;
+        return -1;
     }
+
     $subject_id = get_post_meta($post->ID, '_subject_id', true);
 
-    return $subject_id;
+    if (! $subject_id) {
+        return -1;
+    }
+
+    $subject = get_post($subject_id);
+
+    if (! $subject) {
+        return -1;
+    }
+
+    return $subject->ID;
 }

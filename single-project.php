@@ -24,7 +24,10 @@ while (have_posts()) :
             <summary><?php the_excerpt(); ?></summary>
         </div>
         <div class="two columns">
-            <a href="<?php print get_permalink(get_the_post_subject_id()) ?>">&rarr;&nbsp;zum&nbsp;Fach</a>
+        <?php $subject_id = get_the_post_subject_id();
+        if ( $subject_id !== -1 ): ?>
+            <a href="<?php print get_permalink() ?>">&rarr;&nbsp;zum&nbsp;Fach</a>
+        <?php endif; ?>
         </div>
     </header><!-- end .row -->
 
@@ -42,25 +45,33 @@ while (have_posts()) :
         </div><!-- .entry-content -->
 
         <div class="meta-data">
+            <?php //if ( get_the_post_supervisor_id() !== -1 ): ?>
             <span>
                 <strong>Studierende:&nbsp;</strong>
                 <?php //the_post_students();?>
             </span>
+            <?php //endif; ?>
 
+            <?php if ( $subject_id !== -1 ):  ?>
             <span>
                 <strong>Fach:&nbsp;</strong>
                 <?php the_post_subject(); ?>
             </span>
+            <?php endif; ?>
 
+            <?php if ( get_the_post_term() !== null ): ?>
             <span>
                 <strong>Semester:&nbsp;</strong>
                 <?php the_post_term(); ?>
             </span>
+            <?php endif; ?>
 
+            <?php if ( get_the_post_supervisor_id() !== -1 ): ?>
             <span>
                 <strong>Dozent:&nbsp;</strong>
                 <?php the_post_supervisor(); ?>
             </span>
+            <?php endif; ?>
         </div>
 
         </article>
