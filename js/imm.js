@@ -51,3 +51,16 @@ function immRemoveClass (element, name) {
 //         this.className += " active";
 //     });
 // }
+
+
+function initFlickity () {
+    jQuery('.carousel-gallery').flickity({
+        // options
+        cellSelector: '.highlight',
+        prevNextButtons: false,
+        wrapAround: true,
+        contain: true
+    });
+}
+
+jQuery(window).on('load', initFlickity);

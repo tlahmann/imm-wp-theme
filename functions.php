@@ -21,7 +21,11 @@ add_action('wp_enqueue_scripts', 'imm_load_script');
 
 function imm_load_script()
 {
-    wp_enqueue_script('imm-script', get_template_directory_uri() . './js/imm.js');
+    wp_register_style( 'flickity.css', get_template_directory_uri() . '/css/flickity.css', array());
+	wp_enqueue_style( 'flickity.css');
+
+    wp_enqueue_script('flickity', get_template_directory_uri() . '/js/flickity.pkgd.min.js', array('jquery'), '', false);
+    wp_enqueue_script('imm-script', get_template_directory_uri() . '/js/imm.js', array('flickity', 'jquery'), '', false);
 }
 
 // Add support for post thumbnails
@@ -63,6 +67,8 @@ if (! function_exists('imm_setup')) {
          * to change 'imm' to the name of your theme in all the template files.
          */
         load_theme_textdomain('imm', get_template_directory() . '/languages');
+
+        remove_filter('get_the_excerpt', 'wp_trim_excerpt');
 
         // Add default posts and comments RSS feed links to head.
         add_theme_support('automatic-feed-links');
@@ -439,7 +445,7 @@ function get_the_post_term($post = null)
     }
     $term = explode('-', $term);
     $term_string = '';
-    if(array_key_exists(1, $term)){
+    if (array_key_exists(1, $term)) {
         $term_string = ($term[1] == 1 ? __('Wintersemester') : __('Sommersemester')) . ' ' ;
     }
     return  $term_string . $term[0];
