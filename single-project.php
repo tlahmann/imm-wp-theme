@@ -45,12 +45,12 @@ while (have_posts()) :
         </div><!-- .entry-content -->
 
         <div class="meta-data">
-            <?php //if ( get_the_post_supervisor_id() !== -1 ): ?>
+            <?php if ( get_the_post_students() !== '' ): ?>
             <span>
                 <strong>Studierende:&nbsp;</strong>
-                <?php //the_post_students();?>
+                <?php the_post_students();?>
             </span>
-            <?php //endif; ?>
+            <?php endif; ?>
 
             <?php if ( $subject_id !== -1 ):  ?>
             <span>

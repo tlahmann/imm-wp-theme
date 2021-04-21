@@ -438,7 +438,11 @@ function get_the_post_term($post = null)
         return null;
     }
     $term = explode('-', $term);
-    return ($term[1] == 1 ? __('Wintersemester') : __('Sommersemester')) . ' ' . $term[0];
+    $term_string = '';
+    if(array_key_exists(1, $term)){
+        $term_string = ($term[1] == 1 ? __('Wintersemester') : __('Sommersemester')) . ' ' ;
+    }
+    return  $term_string . $term[0];
 }
 
 /**
@@ -504,4 +508,37 @@ function get_the_post_subject_id($post = null) : int
     }
 
     return $subject->ID;
+}
+
+/**
+ * Echoes the post's students
+ *
+ * @since 0.2.7
+ */
+function the_post_students(): void
+{
+    echo get_the_post_students(null);
+}
+
+/**
+ * Echoes the post's students
+ *
+ * @since 0.2.7
+ *
+ * @param int|WP_Post  $post Optional. Post ID or WP_Post object.  Default is global `$post`.
+ */
+function get_the_post_students($post = null): string
+{
+    $post = get_post($post);
+
+    if (! $post) {
+        return '';
+    }
+
+    $students = get_post_meta($post->ID, '_students', true);
+    
+    if (! $students) {
+        return '';
+    }
+    return $students;
 }
