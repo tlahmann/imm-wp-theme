@@ -26,7 +26,7 @@ while (have_posts()) :
         <div class="two columns">
         <?php $subject_id = get_the_post_subject_id();
         if ( $subject_id !== -1 ): ?>
-            <a href="<?php print get_permalink() ?>">&rarr;&nbsp;zum&nbsp;Fach</a>
+            <a href="<?php print get_permalink($subject_id) ?>">&rarr;&nbsp;zum&nbsp;Fach</a>
         <?php endif; ?>
         </div>
     </header><!-- end .row -->
